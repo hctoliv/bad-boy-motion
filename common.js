@@ -5,6 +5,7 @@ const brl = n => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' 
 const SHOP = 'https://badboy.com.br';
 const STORE = SHOP + '/products/';
 const colUrl = h => 'colecao.html?c=' + encodeURIComponent(h);
+const pdpUrl = h => 'produto.html?p=' + encodeURIComponent(h);
 const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
 /* registro de produtos: os do catálogo fixo da home e os que chegam ao vivo da loja */
@@ -22,10 +23,13 @@ function fromShopify(p) {
   const compare = Math.max(0, ...pool.map(v => +(v.compare_at_price || 0)));
   const sizeIdx = p.options.findIndex(o => /tamanho|size/i.test(o.name));
   const sizes = sizeIdx < 0 ? [] : [...new Set(avail.map(v => v['option' + (sizeIdx + 1)]))];
+  // id da variação por tamanho, pra mandar o carrinho direto pro checkout da loja
+  const vids = {};
+  avail.forEach(v => { const k = sizeIdx < 0 ? '' : v['option' + (sizeIdx + 1)]; if (!(k in vids)) vids[k] = v.id; });
   return {
     t: p.title, h: p.handle, p: price, c: compare > price ? compare : null, sizes,
     imgs: p.images.slice(0, 2).map(i => cdn(i.src, 700)),
-    avail: avail.length > 0, date: p.published_at, type: p.product_type,
+    avail: avail.length > 0, date: p.published_at, type: p.product_type, vids,
   };
 }
 async function fetchAll(path) {
@@ -51,14 +55,14 @@ function cardHTML(p) {
   const off = p.c ? Math.round((1 - p.p / p.c) * 100) : 0;
   const soldOut = p.avail === false;
   return `<article class="card${soldOut ? ' is-soldout' : ''}">
-    <a href="${STORE + p.h}" class="card__media">
+    <a href="${pdpUrl(p.h)}" class="card__media">
       ${soldOut ? '<span class="card__badge card__badge--out">Esgotado</span>' : off ? `<span class="card__badge">${off}% OFF</span>` : ''}
       ${p.imgs[0] ? `<img src="${p.imgs[0]}" alt="${esc(p.t)}" loading="lazy">` : ''}
       ${p.imgs[1] ? `<img src="${p.imgs[1]}" alt="" loading="lazy">` : ''}
     </a>
     ${soldOut ? '' : `<button class="card__quick" data-quick="${p.h}">Compra<br>rápida</button>`}
     <div class="card__info">
-      <a href="${STORE + p.h}" class="card__title">${esc(p.t)}</a>
+      <a href="${pdpUrl(p.h)}" class="card__title">${esc(p.t)}</a>
       ${priceHTML(p)}
       ${p.sizes.length > 1 ? `<p class="card__sizes">${p.sizes.slice(0, 8).join(' · ')}</p>` : ''}
     </div>
@@ -179,7 +183,7 @@ $('#search input').addEventListener('input', async e => {
   const words = q.split(/\s+/);
   const hits = all.filter(p => p.avail !== false && words.every(w => norm(p.t).includes(w))).slice(0, 12);
   box.innerHTML = hits.length
-    ? hits.map(p => `<a href="${STORE + p.h}"><img src="${p.imgs[0] || ''}" alt="" loading="lazy">${esc(p.t)}<b>${brl(p.p)}</b></a>`).join('')
+    ? hits.map(p => `<a href="${pdpUrl(p.h)}"><img src="${p.imgs[0] || ''}" alt="" loading="lazy">${esc(p.t)}<b>${brl(p.p)}</b></a>`).join('')
     : '<p class="search__none">Nada encontrado. Tenta outra palavra.</p>';
 });
 
@@ -196,7 +200,7 @@ document.addEventListener('click', e => {
     ${p.sizes.length ? `<p class="eyebrow">Tamanho</p><div class="sizes">${p.sizes.map(s => `<button>${s}</button>`).join('')}</div>` : ''}
     <p class="modal__hint"></p>
     <button class="btn btn--block" data-add="${p.h}">Adicionar ao carrinho</button>
-    <a class="link" href="${STORE + p.h}">Ver detalhes do produto</a>`;
+    <a class="link" href="${pdpUrl(p.h)}">Ver detalhes do produto</a>`;
   if (p.sizes.length === 1) $('#quick .sizes button').classList.add('is-on');
   open('quick');
 });
@@ -227,9 +231,9 @@ function updateBadge(bump) {
   badge.hidden = !n;
   if (bump) { badge.classList.remove('bump'); void badge.offsetWidth; badge.classList.add('bump'); }
 }
-function addToCart(p, size) {
+function addToCart(p, size, qty = 1, vid = p.vids?.[size]) {
   const line = cart.find(l => l.h === p.h && l.size === size);
-  line ? line.qty++ : cart.push({ h: p.h, size, qty: 1, t: p.t, p: p.p, img: p.imgs[0] });
+  line ? line.qty += qty : cart.push({ h: p.h, size, qty, t: p.t, p: p.p, img: p.imgs[0], vid });
   saveCart(); updateBadge(true);
 }
 function renderCart() {
@@ -242,6 +246,9 @@ function renderCart() {
       <p class="price"><b>${brl(l.p * l.qty)}</b></p>
     </div>`).join('') : '<p class="cart__empty">Seu carrinho tá vazio.</p>';
   $('[data-subtotal]').textContent = brl(cart.reduce((s, l) => s + l.p * l.qty, 0));
+  // link permanente de carrinho da Shopify: leva os itens pro checkout da Bad Boy
+  const ready = cart.length && cart.every(l => l.vid);
+  $('.cart__foot .btn').href = ready ? `${SHOP}/cart/${cart.map(l => l.vid + ':' + l.qty).join(',')}` : SHOP + '/cart';
   updateBadge();
 }
 $('.cart__items').addEventListener('click', e => {
