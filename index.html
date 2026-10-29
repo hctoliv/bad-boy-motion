@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -30,44 +30,7 @@
       <svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
     </button>
     <a href="#" class="header__logo"><img src="img/logo.png" alt="Bad Boy" width="848" height="156"></a>
-    <nav class="header__nav" aria-label="Principal">
-      <a href="#lancamentos">Lançamentos</a>
-      <a href="https://badboy.com.br/collections/bad-boy">Masculino</a>
-      <a href="#feminino">Feminino</a>
-      <a href="https://badboy.com.br/collections/equipamentos-de-luta">Equipamentos</a>
-      <div class="mega">
-        <button class="mega__trigger">Coleções <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="mega__panel">
-          <div class="mega__links">
-            <p class="eyebrow">Coleções</p>
-            <a href="https://badboy.com.br/collections/tactical">Tactical</a>
-            <a href="https://badboy.com.br/collections/bjj">BJJ</a>
-            <a href="https://badboy.com.br/collections/pro-series">Pro Series</a>
-            <a href="https://badboy.com.br/collections/old-school">Old School</a>
-            <a href="https://badboy.com.br/collections/respect-is-earned">Respect is Earned</a>
-            <a href="https://badboy.com.br/collections/sexy-machine">Sexy Machine</a>
-          </div>
-          <div class="mega__links">
-            <p class="eyebrow">Por esporte</p>
-            <a href="https://badboy.com.br/collections/jiu-jitsu">Jiu Jitsu</a>
-            <a href="https://badboy.com.br/collections/mma">MMA</a>
-            <a href="https://badboy.com.br/collections/boxe">Boxe</a>
-            <a href="https://badboy.com.br/collections/bodybuilding">Bodybuilding</a>
-            <a href="https://badboy.com.br/collections/surf">Surf</a>
-          </div>
-          <a class="mega__promo" href="https://badboy.com.br/collections/tactical">
-            <img src="img/col-tactical.jpg" alt="" loading="lazy">
-            <span>Tactical</span>
-          </a>
-          <a class="mega__promo" href="https://badboy.com.br/collections/pro-series">
-            <img src="img/col-proseries.jpg" alt="" loading="lazy">
-            <span>Pro Series</span>
-          </a>
-        </div>
-      </div>
-      <a href="#suplementos">Suplementos</a>
-      <a href="https://badboy.com.br/collections/outlet" class="is-sale">Outlet</a>
-    </nav>
+    <nav class="header__nav" aria-label="Principal"></nav>
     <div class="header__icons">
       <button class="icon-btn" aria-label="Buscar" data-open="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       <a class="icon-btn hide-sm" aria-label="Minha conta" href="https://badboy.com.br/account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
@@ -114,11 +77,35 @@
     </div>
   </section>
 
+  <!-- CATEGORIAS -->
+  <section class="section rail" id="categorias">
+    <div class="section__head reveal">
+      <h2 class="h2">Compre por categoria</h2>
+      <div class="rail__arrows">
+        <button class="icon-btn" data-rail="-1" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+        <button class="icon-btn" data-rail="1" aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="rail__track">
+      <a class="cat reveal" href="colecao.html?c=camisetas"><div class="cat__img"><img src="img/cat-camisetas.jpg" alt="" loading="lazy"></div><span>Camisetas</span></a>
+      <a class="cat reveal" href="colecao.html?c=regatas"><div class="cat__img"><img src="img/p/regata-bad-boy-origem-1.jpg" alt="" loading="lazy"></div><span>Regatas</span></a>
+      <a class="cat reveal" href="colecao.html?c=rashguard-todas"><div class="cat__img"><img src="img/p/rashguard-bad-boy-tactical-tan-2-6-1.jpg" alt="" loading="lazy"></div><span>Rashguard</span></a>
+      <a class="cat reveal" href="colecao.html?c=bermudas-e-shorts"><div class="cat__img"><img src="img/cat-bermudas.jpg" alt="" loading="lazy"></div><span>Bermudas e shorts</span></a>
+      <a class="cat reveal" href="colecao.html?c=moletons-e-jaquetas-1"><div class="cat__img"><img src="img/cat-moletom.jpg" alt="" loading="lazy"></div><span>Moletons e jaquetas</span></a>
+      <a class="cat reveal" href="colecao.html?c=kimonos"><div class="cat__img"><img src="img/p/kimono-bad-boy-pro-series-preto-copia-1.jpg" alt="" loading="lazy"></div><span>Kimonos e faixas</span></a>
+      <a class="cat reveal" href="colecao.html?c=cueca-bad-boy"><div class="cat__img"><img src="https://cdn.shopify.com/s/files/1/0725/9832/3484/files/Kitde6BoxerBJJ.webp?width=600" alt="" loading="lazy"></div><span>Cuecas</span></a>
+      <a class="cat reveal" href="colecao.html?c=bones"><div class="cat__img"><img src="https://cdn.shopify.com/s/files/1/0725/9832/3484/files/E31DF5E6-1EA0-43DF-A3B2-92AF7551A83B.jpg?width=600" alt="" loading="lazy"></div><span>Bonés e gorros</span></a>
+      <a class="cat reveal" href="colecao.html?c=bad-girl"><div class="cat__img"><img src="img/p/macaquinho-sexy-machine-soft-black-1.jpg" alt="" loading="lazy"></div><span>Feminino</span></a>
+      <a class="cat reveal" href="colecao.html?c=equipamentos-de-luta"><div class="cat__img"><img src="https://cdn.shopify.com/s/files/1/0725/9832/3484/files/7_Luva_de_Boxe_12_Oz_Alpha_Series_Bad_Boy_face.jpg?width=600" alt="" loading="lazy"></div><span>Equipamentos</span></a>
+      <a class="cat reveal" href="colecao.html?c=suplemento"><div class="cat__img"><img src="img/p/pre-treino-sabor-laranja-bad-boy-450g-1.jpg" alt="" loading="lazy"></div><span>Suplementos</span></a>
+    </div>
+  </section>
+
   <!-- LANÇAMENTOS -->
   <section class="section" id="lancamentos">
     <div class="section__head reveal">
       <h2 class="h2">Lançamentos</h2>
-      <a href="https://badboy.com.br/collections/lancamentos" class="link">Ver tudo</a>
+      <a href="colecao.html?c=lancamentos" class="link">Ver tudo</a>
     </div>
     <div class="grid grid--4" data-products="novos"></div>
   </section>
@@ -148,7 +135,7 @@
       </div>
     </div>
     <div class="grid grid--4 tab-grid" data-products="kimonos"></div>
-    <div class="section__foot"><a href="https://badboy.com.br/collections/kimonos" class="btn" id="tab-cta">Ver todos os kimonos</a></div>
+    <div class="section__foot"><a href="colecao.html?c=kimonos" class="btn" id="tab-cta">Ver todos os kimonos</a></div>
   </section>
 
   <!-- FAIXA DE IMAGEM (no lugar do vídeo do tema) -->
@@ -157,7 +144,7 @@
     <div class="feature-media__copy reveal">
       <p class="eyebrow">Campanha Fighter DNA</p>
       <h2 class="display">Disciplina no sangue.<br>Atitude sem limite.</h2>
-      <a href="https://badboy.com.br/collections/lancamentos" class="btn btn--light">Conhecer a coleção</a>
+      <a href="colecao.html?c=lancamentos" class="btn btn--light">Conhecer a coleção</a>
     </div>
   </section>
 
@@ -181,14 +168,25 @@
   <section class="section">
     <div class="section__head reveal">
       <h2 class="h2">Coleções</h2>
-      <a href="https://badboy.com.br/collections" class="link">Ver todas</a>
+      <a href="colecao.html?c=all" class="link">Ver todas</a>
     </div>
     <div class="collage">
-      <a class="tile tile--wide reveal" href="https://badboy.com.br/collections/bjj"><img src="img/kimono-roots.jpg" alt="" loading="lazy"><span>BJJ</span></a>
-      <a class="tile reveal" href="https://badboy.com.br/collections/tactical"><img src="img/col-tactical.jpg" alt="" loading="lazy"><span>Tactical</span></a>
-      <a class="tile reveal" href="https://badboy.com.br/collections/old-school"><img src="img/col-oldschool.jpg" alt="" loading="lazy"><span>Old School</span></a>
-      <a class="tile reveal" href="https://badboy.com.br/collections/pro-series"><img src="img/hero-kimono-preto.jpg" alt="" loading="lazy"><span>Pro Series</span></a>
-      <a class="tile tile--wide reveal" href="https://badboy.com.br/collections/jiu-jitsu"><img src="img/luta-jiu.jpg" alt="" loading="lazy" class="pos-mid"><span>Jiu Jitsu</span></a>
+      <a class="tile tile--wide reveal" href="colecao.html?c=bjj"><img src="img/kimono-roots.jpg" alt="" loading="lazy"><span>BJJ</span></a>
+      <a class="tile reveal" href="colecao.html?c=tactical"><img src="img/col-tactical.jpg" alt="" loading="lazy"><span>Tactical</span></a>
+      <a class="tile reveal" href="colecao.html?c=old-school"><img src="img/col-oldschool.jpg" alt="" loading="lazy"><span>Old School</span></a>
+      <a class="tile reveal" href="colecao.html?c=pro-series"><img src="img/hero-kimono-preto.jpg" alt="" loading="lazy"><span>Pro Series</span></a>
+      <a class="tile reveal" href="colecao.html?c=camisetas-oversized"><img src="https://cdn.shopify.com/s/files/1/0725/9832/3484/files/22.9A.png?width=900" alt="" loading="lazy"><span>Oversized</span></a>
+      <a class="tile reveal" href="colecao.html?c=respect-is-earned"><img src="https://cdn.shopify.com/s/files/1/0725/9832/3484/files/Regata_Bad_Boy_Oversized_Jiu_Jitsu_Respect_1.jpg?width=900" alt="" loading="lazy"><span>Respect is earned</span></a>
+    </div>
+  </section>
+
+  <!-- POR ESPORTE -->
+  <section class="section section--tight">
+    <div class="section__head reveal"><h2 class="h2">Compre por esporte</h2></div>
+    <div class="sports">
+      <a class="tile reveal" href="colecao.html?c=jiu-jitsu"><img src="img/luta-jiu.jpg" alt="" loading="lazy"><span>Jiu Jitsu</span></a>
+      <a class="tile reveal" href="colecao.html?c=mma"><img src="img/luta-saco.jpg" alt="" loading="lazy"><span>MMA</span></a>
+      <a class="tile reveal" href="colecao.html?c=boxe"><img src="img/luta-manopla.jpg" alt="" loading="lazy" class="pos-right"><span>Boxe</span></a>
     </div>
   </section>
 
@@ -204,8 +202,8 @@
       <h2 class="h2">Sexy is back</h2>
       <p>A linha Sexy Machine voltou: tops, shorts e macaquinho pra treinar e sair do treino do mesmo jeito.</p>
       <div class="callout__btns">
-        <a href="https://badboy.com.br/collections/sexy-machine" class="btn">Ver Sexy Machine</a>
-        <a href="https://badboy.com.br/collections/fitness" class="btn btn--ghost">Todo o feminino</a>
+        <a href="colecao.html?c=sexy-machine" class="btn">Ver Sexy Machine</a>
+        <a href="colecao.html?c=fitness" class="btn btn--ghost">Todo o feminino</a>
       </div>
     </div>
   </section>
@@ -214,7 +212,7 @@
   <section class="section" id="suplementos">
     <div class="section__head reveal">
       <h2 class="h2">Recuperação e performance</h2>
-      <a href="https://badboy.com.br/collections/suplemento" class="link">Ver suplementos</a>
+      <a href="colecao.html?c=suplemento" class="link">Ver suplementos</a>
     </div>
     <div class="grid grid--4" data-products="supl"></div>
   </section>
@@ -312,11 +310,11 @@
     </div>
     <div>
       <p class="eyebrow">Loja</p>
-      <a href="https://badboy.com.br/collections/lancamentos">Lançamentos</a>
-      <a href="https://badboy.com.br/collections/kimonos">Kimonos</a>
-      <a href="https://badboy.com.br/collections/rashguard-todas">Rashguard</a>
-      <a href="https://badboy.com.br/collections/equipamentos-de-luta">Equipamentos</a>
-      <a href="https://badboy.com.br/collections/outlet">Outlet</a>
+      <a href="colecao.html?c=lancamentos">Lançamentos</a>
+      <a href="colecao.html?c=kimonos">Kimonos</a>
+      <a href="colecao.html?c=rashguard-todas">Rashguard</a>
+      <a href="colecao.html?c=equipamentos-de-luta">Equipamentos</a>
+      <a href="colecao.html?c=outlet">Outlet</a>
     </div>
     <div>
       <p class="eyebrow">Institucional</p>
@@ -340,17 +338,7 @@
 <!-- MENU CELULAR -->
 <aside class="drawer drawer--left" id="menu" aria-hidden="true">
   <div class="drawer__head"><img src="img/logo.png" alt="Bad Boy" class="drawer__logo"><button class="icon-btn" data-close aria-label="Fechar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
-  <nav class="drawer__nav">
-    <a href="#lancamentos" data-close>Lançamentos</a>
-    <a href="https://badboy.com.br/collections/bad-boy">Masculino</a>
-    <a href="#feminino" data-close>Feminino</a>
-    <a href="https://badboy.com.br/collections/equipamentos-de-luta">Equipamentos</a>
-    <a href="https://badboy.com.br/collections/tactical">Tactical</a>
-    <a href="https://badboy.com.br/collections/bjj">BJJ</a>
-    <a href="https://badboy.com.br/collections/pro-series">Pro Series</a>
-    <a href="#suplementos" data-close>Suplementos</a>
-    <a href="https://badboy.com.br/collections/outlet" class="is-sale">Outlet</a>
-  </nav>
+  <nav class="drawer__nav"></nav>
 </aside>
 
 <!-- BUSCA -->
@@ -386,7 +374,9 @@
 <div class="scrim" data-close></div>
 <div class="toast" role="status"></div>
 
+<script src="menu.js?v=1"></script>
 <script src="products.js?v=1"></script>
-<script src="main.js?v=1"></script>
+<script src="common.js?v=1"></script>
+<script src="home.js?v=1"></script>
 </body>
 </html>
