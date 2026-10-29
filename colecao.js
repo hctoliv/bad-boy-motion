@@ -142,12 +142,6 @@ document.addEventListener('click', e => {
 });
 $('[data-more-btn]').addEventListener('click', () => { state.shown += PAGE; render(); });
 
-/* 2 ou 4 colunas, como no Motion */
-$$('[data-cols]').forEach(b => b.addEventListener('click', () => {
-  $$('[data-cols]').forEach(x => x.classList.toggle('is-on', x === b));
-  $('[data-grid]').classList.toggle('grid--wide', b.dataset.cols === '2');
-}));
-
 /* carga */
 (async () => {
   try {

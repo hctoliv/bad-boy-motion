@@ -2,7 +2,8 @@
 const handle = new URLSearchParams(location.search).get('p') || '';
 const money = cents => brl(cents / 100);
 const https = src => (src.startsWith('//') ? 'https:' : '') + src;
-let data, picked = [], qty = 1;
+let data, picked = [];
+const qty = 1;
 
 /* de onde a pessoa veio: categoria no breadcrumb e no "ver mais" */
 const fromCol = (() => {
@@ -41,7 +42,7 @@ function renderOptions() {
     const name = o.name || 'Opção';
     if (name === 'Title' && o.values.length === 1) return '';
     return `<div class="pdp__opt">
-      <p class="eyebrow">${esc(name)}: <b>${esc(picked[i] ?? '')}</b></p>
+      <p class="eyebrow">${esc(name)} — <b>${esc(picked[i] ?? '')}</b></p>
       <div class="sizes">${o.values.map(val => {
         const test = picked.map((p, j) => j === i ? val : p);
         const ok = data.variants.some(v => v.available && matches(v, test));
@@ -75,20 +76,41 @@ function renderSpecs(v) {
   $('[data-specs]').innerHTML = rows.map(([k, x]) => `<dt>${k}</dt><dd>${esc(x)}</dd>`).join('');
 }
 
+// rolagem animada à mão: o smooth nativo trava com scroll-snap em alguns Chromes
+function slideTo(el, left) {
+  const from = el.scrollLeft, dist = left - from, t0 = performance.now(), dur = 450;
+  el.style.scrollSnapType = 'none';
+  const step = now => {
+    const k = Math.min(1, (now - t0) / dur);
+    el.scrollLeft = from + dist * (1 - Math.pow(1 - k, 3));
+    if (k < 1) requestAnimationFrame(step); else el.style.scrollSnapType = '';
+  };
+  requestAnimationFrame(step);
+}
+
 function renderGallery() {
   const imgs = data.images.slice(0, 12).map(https);
   const g = $('[data-gallery]');
   g.innerHTML = imgs.map((src, i) =>
-    `<figure class="pdp__img"><img src="${cdn(src, i ? 900 : 1200)}" alt="${i ? '' : esc(data.title)}" ${i > 1 ? 'loading="lazy"' : ''}></figure>`).join('');
+    `<figure class="pdp__img"><img src="${cdn(src, 1100)}" alt="${i ? '' : esc(data.title)}" ${i ? 'loading="lazy"' : ''}></figure>`).join('');
+  const thumbs = $('[data-thumbs]');
+  thumbs.innerHTML = imgs.length > 1 ? imgs.map((src, i) =>
+    `<button class="${i ? '' : 'is-on'}" data-thumb="${i}" aria-label="Foto ${i + 1}"><img src="${cdn(src, 160)}" alt="" loading="lazy"></button>`).join('') : '';
   const counter = $('[data-counter]');
   counter.hidden = imgs.length < 2;
-  const dots = imgs.map((_, i) => `<i class="${i ? '' : 'is-on'}"></i>`).join('');
-  counter.innerHTML = dots;
-  // no celular a galeria vira carrossel com bolinhas
-  g.addEventListener('scroll', () => {
-    const i = Math.round(g.scrollLeft / g.clientWidth);
+  counter.innerHTML = imgs.map((_, i) => `<i class="${i ? '' : 'is-on'}"></i>`).join('');
+  // a foto principal desliza; miniaturas e bolinhas acompanham
+  const mark = i => {
     $$('i', counter).forEach((d, n) => d.classList.toggle('is-on', n === i));
-  }, { passive: true });
+    $$('[data-thumb]', thumbs).forEach((t, n) => t.classList.toggle('is-on', n === i));
+  };
+  g.addEventListener('scroll', () => mark(Math.round(g.scrollLeft / g.clientWidth)), { passive: true });
+  thumbs.addEventListener('click', e => {
+    const t = e.target.closest('[data-thumb]');
+    if (!t) return;
+    slideTo(g, +t.dataset.thumb * g.clientWidth);
+    mark(+t.dataset.thumb);
+  });
 }
 
 /* interações */
@@ -104,11 +126,6 @@ $('[data-options]').addEventListener('click', e => {
   $('[data-hint]').textContent = '';
   renderOptions(); renderVariant();
 });
-$$('[data-step]').forEach(b => b.addEventListener('click', () => {
-  qty = Math.max(1, Math.min(10, qty + +b.dataset.step));
-  $('[data-qty]').textContent = qty;
-  renderVariant();
-}));
 function addCurrent() {
   const v = current();
   if (!v?.available) { $('[data-hint]').textContent = 'Escolhe um tamanho disponível'; return; }
@@ -119,12 +136,6 @@ function addCurrent() {
 }
 $('[data-add-pdp]').addEventListener('click', addCurrent);
 $('[data-buybar-go]').addEventListener('click', addCurrent);
-$('[data-share]').addEventListener('click', async () => {
-  const url = location.href;
-  if (navigator.share) { navigator.share({ title: data.title, url }).catch(() => {}); return; }
-  navigator.clipboard?.writeText(url).catch(() => {});
-  toast('Link copiado');
-});
 
 /* barra de compra fixa aparece quando o botão principal sai da tela */
 const buyBox = $('.pdp__buy'), buybar = $('[data-buybar]');
@@ -159,7 +170,10 @@ async function renderRelated() {
   $('[data-title]').textContent = data.title;
   $('[data-crumb]').textContent = data.title;
   $('[data-buybar-title]').textContent = data.title;
-  $('[data-vendor]').textContent = data.vendor || 'Bad Boy';
+  const share = encodeURIComponent(location.href), txt = encodeURIComponent(data.title);
+  $('[data-share=facebook]').href = `https://www.facebook.com/sharer/sharer.php?u=${share}`;
+  $('[data-share=x]').href = `https://twitter.com/intent/tweet?text=${txt}&url=${share}`;
+  $('[data-share=whatsapp]').href = `https://api.whatsapp.com/send?text=${txt}%20${share}`;
   $('[data-desc]').innerHTML = cleanHTML(data.description || '') || '<p>Sem descrição.</p>';
 
   const first = data.variants.find(v => v.available) || data.variants[0];

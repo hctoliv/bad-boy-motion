@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body class="page-solid">
 
@@ -44,28 +44,27 @@
   <nav class="crumbs crumbs--left" aria-label="Você está em"><a href="index.html">Início</a><span data-crumb-col></span><span data-crumb aria-current="page"></span></nav>
 
   <section class="pdp">
-    <div class="pdp__gallery" data-gallery>
-      <div class="skeleton"></div><div class="skeleton"></div>
+    <div class="pdp__media">
+      <div class="pdp__thumbs" data-thumbs></div>
+      <div class="pdp__main">
+        <div class="pdp__gallery" data-gallery><div class="skeleton"></div></div>
+        <div class="pdp__counter" data-counter hidden></div>
+      </div>
     </div>
-    <div class="pdp__counter" data-counter hidden></div>
 
     <div class="pdp__info">
       <div class="pdp__sticky">
-        <p class="eyebrow pdp__vendor" data-vendor>Bad Boy</p>
         <h1 class="pdp__title" data-title>&nbsp;</h1>
         <div class="pdp__price" data-price></div>
-        <p class="pdp__pix" data-pix></p>
         <div data-options></div>
         <p class="modal__hint" data-hint></p>
-        <div class="pdp__buy">
-          <div class="qty qty--lg"><button data-step="-1" aria-label="Menos">−</button><span data-qty>1</span><button data-step="1" aria-label="Mais">+</button></div>
-          <button class="btn pdp__add" data-add-pdp>Adicionar ao carrinho</button>
-        </div>
-        <a class="btn btn--ghost btn--block" data-buy-now href="#">Comprar agora</a>
         <p class="pdp__stock" data-stock></p>
-
+        <div class="pdp__buy">
+          <button class="btn btn--ghost btn--block pdp__add" data-add-pdp>Adicionar ao carrinho</button>
+          <a class="btn btn--block" data-buy-now href="#">Comprar agora</a>
+        </div>
+        <div class="rte pdp__desc" data-desc></div>
         <div class="pdp__acc">
-          <details open><summary>Descrição</summary><div class="rte" data-desc></div></details>
           <details><summary>Detalhes</summary><dl class="pdp__specs" data-specs></dl></details>
           <details><summary>Dúvidas</summary><div class="rte">
             <p><a href="https://badboy.com.br/pages/como-comprar">Como comprar</a></p>
@@ -73,7 +72,11 @@
             <p><a href="https://api.whatsapp.com/send?phone=+554891016526">WhatsApp (48) 99101-6526</a></p>
           </div></details>
         </div>
-        <button class="pdp__share link" data-share>Compartilhar</button>
+        <div class="pdp__share" data-share-row>
+          <a data-share="facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V8Z"/></svg>Compartilhar</a>
+          <a data-share="x" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4 4 20"/></svg>Postar</a>
+          <a data-share="whatsapp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20Z"/></svg>WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
@@ -81,9 +84,9 @@
   <section class="section" data-related-wrap hidden>
     <div class="section__head reveal">
       <h2 class="h2">Você também pode gostar</h2>
-      <a href="colecao.html?c=all" class="link" data-related-link>Ver mais</a>
     </div>
     <div class="grid grid--4" data-related></div>
+    <div class="section__foot"><a href="colecao.html?c=all" class="btn btn--ghost" data-related-link>Ver mais</a></div>
   </section>
 
 </main>
@@ -182,6 +185,6 @@
 <script src="menu.js?v=1"></script>
 <script src="products.js?v=1"></script>
 <script src="common.js?v=2"></script>
-<script src="produto.js?v=2"></script>
+<script src="produto.js?v=4"></script>
 </body>
 </html>
