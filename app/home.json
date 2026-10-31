@@ -1,0 +1,302 @@
+{
+  "announcement": {
+    "text": "Esquenta Black: 12% off com o cupom ESQUENTABLACK",
+    "coupon": "ESQUENTABLACK",
+    "endsAt": "2026-11-01T00:00:00-03:00"
+  },
+  "banners": [
+    {
+      "id": "esquenta-black",
+      "image": "https://badboy.com.br/cdn/shop/files/Esquenta-Black_mobile_768x585_69a2dcb8-fa6b-4568-a030-b20c959c317f.png",
+      "link": {
+        "collection": "mais-vendidos-no-site",
+        "title": "Mais vendidos"
+      },
+      "endsAt": "2026-11-01T00:00:00-03:00"
+    },
+    {
+      "id": "fighter-dna",
+      "image": "https://badboy.com.br/cdn/shop/files/Campanha_Badboy_Fighter_DNA.png",
+      "link": {
+        "collection": "lancamentos",
+        "title": "Lançamentos"
+      }
+    },
+    {
+      "id": "moletom-bjj",
+      "image": "https://badboy.com.br/cdn/shop/files/banner_mobile_moletom_BJJ.png",
+      "link": {
+        "product": "moletom-bad-boy-bjj-marrom"
+      }
+    },
+    {
+      "id": "old-school",
+      "image": "https://badboy.com.br/cdn/shop/files/Banner_Bad_Boy_Old_School_de_Jiu-Jitsu.png",
+      "link": {
+        "collection": "old-school",
+        "title": "Old School 90's"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "title": "Camisetas",
+      "collection": "camisetas",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/cat-camisetas.jpg"
+    },
+    {
+      "title": "Moletons",
+      "collection": "moletons-e-jaquetas-1",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/cat-moletom.jpg"
+    },
+    {
+      "title": "Bermudas",
+      "collection": "bermudas-e-shorts",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/cat-bermudas.jpg"
+    },
+    {
+      "title": "Kimonos",
+      "collection": "kimonos",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/kimono-roots.jpg"
+    },
+    {
+      "title": "Luta",
+      "collection": "equipamentos-de-luta",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/luta-manopla.jpg"
+    },
+    {
+      "title": "Feminino",
+      "collection": "bad-girl",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/p/macaquinho-sexy-machine-soft-black-1.jpg"
+    },
+    {
+      "title": "Tactical",
+      "collection": "tactical",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/col-tactical.jpg"
+    }
+  ],
+  "rails": [
+    {
+      "title": "Lançamentos",
+      "collection": "lancamentos"
+    },
+    {
+      "title": "Mais vendidos",
+      "collection": "mais-vendidos-no-site"
+    },
+    {
+      "title": "Kimonos",
+      "collection": "kimonos"
+    },
+    {
+      "title": "Equipamentos de luta",
+      "collection": "equipamentos-de-luta"
+    },
+    {
+      "title": "Sexy Machine",
+      "collection": "sexy-machine"
+    }
+  ],
+  "sections": [
+    {
+      "type": "deal",
+      "title": "Esquenta Black",
+      "subtitle": "12% off com cupom · aproveite antes de acabar",
+      "collection": "mais-vendidos-no-site",
+      "coupon": "ESQUENTABLACK",
+      "endsAt": "2026-11-01T00:00:00-03:00"
+    },
+    {
+      "type": "rail",
+      "title": "Lançamentos",
+      "collection": "lancamentos"
+    },
+    {
+      "type": "editorial",
+      "title": "Feito pro tatame",
+      "subtitle": "Kimonos Pro Series e Roots",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/kimono-roots.jpg",
+      "collection": "kimonos",
+      "cta": "Ver kimonos"
+    },
+    {
+      "type": "rail",
+      "title": "Mais vendidos",
+      "collection": "mais-vendidos-no-site"
+    },
+    {
+      "type": "duo",
+      "items": [
+        {
+          "title": "Tactical",
+          "image": "https://hctoliv.github.io/bad-boy-motion/img/col-tactical.jpg",
+          "collection": "tactical"
+        },
+        {
+          "title": "Old School",
+          "image": "https://hctoliv.github.io/bad-boy-motion/img/col-oldschool.jpg",
+          "collection": "old-school"
+        }
+      ]
+    },
+    {
+      "type": "lines",
+      "title": "Linhas Bad Boy",
+      "items": [
+        {
+          "title": "Pro Series",
+          "collection": "pro-series"
+        },
+        {
+          "title": "Tactical",
+          "collection": "tactical"
+        },
+        {
+          "title": "BJJ",
+          "collection": "bjj"
+        },
+        {
+          "title": "Old School",
+          "collection": "old-school"
+        },
+        {
+          "title": "Boxe",
+          "collection": "boxe"
+        },
+        {
+          "title": "Sexy Machine",
+          "collection": "sexy-machine"
+        }
+      ]
+    },
+    {
+      "type": "rail",
+      "title": "Kimonos",
+      "collection": "kimonos"
+    },
+    {
+      "type": "editorial",
+      "title": "Treino pesado",
+      "subtitle": "Luvas, bandagens e equipamentos",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/luta-manopla.jpg",
+      "collection": "equipamentos-de-luta",
+      "cta": "Ver equipamentos"
+    },
+    {
+      "type": "looks",
+      "title": "Compre o look",
+      "items": [
+        {
+          "image": "https://hctoliv.github.io/bad-boy-motion/img/hero-kimono-preto.jpg",
+          "products": [
+            "kimono-bad-boy-pro-series-preto"
+          ]
+        },
+        {
+          "image": "https://hctoliv.github.io/bad-boy-motion/img/kimono-roots.jpg",
+          "products": [
+            "kimono-ripstop-bad-boy-roots-branco"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rail",
+      "title": "Equipamentos de luta",
+      "collection": "equipamentos-de-luta"
+    },
+    {
+      "type": "duo",
+      "items": [
+        {
+          "title": "Pro Series",
+          "image": "https://hctoliv.github.io/bad-boy-motion/img/col-proseries.jpg",
+          "collection": "pro-series"
+        },
+        {
+          "title": "Moletons",
+          "image": "https://hctoliv.github.io/bad-boy-motion/img/cat-moletom.jpg",
+          "collection": "moletons-e-jaquetas-1"
+        }
+      ]
+    },
+    {
+      "type": "editorial",
+      "title": "Jiu-jitsu",
+      "subtitle": "Rashguards, kimonos e faixas",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/luta-jiu.jpg",
+      "collection": "bjj",
+      "cta": "Ver coleção BJJ"
+    },
+    {
+      "type": "rail",
+      "title": "Sexy Machine",
+      "collection": "sexy-machine"
+    }
+  ],
+  "shortcuts": [
+    {
+      "title": "Cupons",
+      "icon": "ticket.fill",
+      "link": {
+        "screen": "cupons"
+      }
+    },
+    {
+      "title": "Lançamentos",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/cat-camisetas.jpg",
+      "link": {
+        "collection": "lancamentos",
+        "title": "Lançamentos"
+      }
+    },
+    {
+      "title": "Kimonos",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/kimono-roots.jpg",
+      "link": {
+        "collection": "kimonos",
+        "title": "Kimonos"
+      }
+    },
+    {
+      "title": "Luta",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/luta-manopla.jpg",
+      "link": {
+        "collection": "equipamentos-de-luta",
+        "title": "Equipamentos de luta"
+      }
+    },
+    {
+      "title": "Sexy Machine",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/p/macaquinho-sexy-machine-soft-black-1.jpg",
+      "link": {
+        "collection": "sexy-machine",
+        "title": "Sexy Machine"
+      }
+    },
+    {
+      "title": "Old School",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/col-oldschool.jpg",
+      "link": {
+        "collection": "old-school",
+        "title": "Old School 90's"
+      }
+    },
+    {
+      "title": "Tactical",
+      "image": "https://hctoliv.github.io/bad-boy-motion/img/col-tactical.jpg",
+      "link": {
+        "collection": "tactical",
+        "title": "Tactical"
+      }
+    }
+  ],
+  "coupons": [
+    {
+      "code": "ESQUENTABLACK",
+      "title": "12% OFF no Esquenta Black",
+      "detail": "Vale pro valor dos produtos, sem frete. Não cumulativo.",
+      "endsAt": "2026-11-01T00:00:00-03:00"
+    }
+  ]
+}
